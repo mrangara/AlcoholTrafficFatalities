@@ -1,0 +1,11 @@
+name: AlcoholTrafficFatalities
+title:
+account: analyticsapps
+server: shinyapps.io
+appId: 142199
+bundleId: 635928
+url: https://analyticsapps.shinyapps.io/AlcoholTrafficFatalities/
+when: 1480913941.35067
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: uiStart.R

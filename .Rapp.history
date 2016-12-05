@@ -1,0 +1,374 @@
+?rpart
+modFit <- train(Class ~ ., model=rpart, data=training)
+library(randomForest)
+library(AppliedPredictiveModeling)#
+data(segmentationOriginal)#
+library(caret)
+nrow(segmentationOriginal)
+training <- subset(segmentationOriginal,Case == "Train")
+nrow(training)
+testing <- subset(segmentationOriginal,Case == "Test")
+nrow(testing)
+modFit <- train(Class ~ ., model=rpart,data=training)
+library(caret)
+modFit <- train(Class ~ ., method="rpart",data=training)
+?rattle
+fancyRpartPlot(modFit)
+library(rattle)
+fancyRpartPlot(modFit)
+fancyRpartPlot(modFit$finalModel)
+library(pgmm)#
+data(olive)#
+olive = olive[,-1]
+str(olive)
+library(pgmm)#
+data(olive)
+str(olive)
+library(pgmm)#
+data(olive)#
+olive = olive[,-1]
+str(olive)
+modFit <- train(Area ~ ., method="rpart",data=olive)
+modFi4
+modFit
+newdata = as.data.frame(t(colMeans(olive)))
+predict(modFit,data=newdata)
+clear
+cls
+colMeans(olive)
+t(colMeans(olive))
+newdata <- as.data.frame(t(colMeans(olive)))
+newdata
+modFit <- train(Area ~ ., method="rpart",data=olive)
+print(modFit$finalModel)
+predict(modFit,newdata=newdata)
+library(ElemStatLearn)#
+data(SAheart)#
+set.seed(8484)#
+train = sample(1:dim(SAheart)[1],size=dim(SAheart)[1]/2,replace=F)#
+trainSA = SAheart[train,]#
+testSA = SAheart[-train,]
+set.seed(13234)
+dim(SAheart)
+str(SAheart)
+modFit <- train(chd ~ age+alcohol+obesity+tobacco+typea+ldl, method="glm",family="binomial",data=trainSA)
+newTrainSA <- trainSA
+newTrainSA$chd <- factor(trainSA$chd)
+str(trainSA)
+str(newTrainSA)
+modFit <- train(chd ~ age+alcohol+obesity+tobacco+typea+ldl, method="glm",family="binomial",data=newTrainSA)
+newTestSA <- testSA
+newTestSA$chd <- factor(testSA$chd)
+str(newTestSA)
+missClass = function(values,prediction){sum(((prediction > 0.5)*1) != values)/length(values)}
+missClass(newTrainSA$chd,predict(modFit,newdata=newTrainSA))
+missClass(trainSA$chd,predict(modFit,newdata=trainSA))
+modFit <- train(chd ~ age+alcohol+obesity+tobacco+typea+ldl, method="glm",family="binomial",data=trainSA)
+modFit <- train(chd ~ age+alcohol+obesity+tobacco+typea+ldl, method="glm",family="binomial",data=testSA)
+modFit <- train(chd ~ age+alcohol+obesity+tobacco+typea+ldl, method="glm",family="binomial",data=trainSA)
+missClass(trainSA$chd,predict(modFit,newdata=trainSA))
+missClass(testSA$chd,predict(modFit,newdata=testSA))
+library(ElemStatLearn)#
+data(vowel.train)#
+data(vowel.test)
+str(vowel.train)
+vowel.train$y <- factor(vowel.train$y)
+vowel.test$y <- factor(vowel.test$y)
+set.seed(33833)
+modFit <- train(y ~., method="rf",data=vowel.train)
+varimp(modFit)
+varImp(modFit)
+?varImp
+str(vowel.train)
+varImp(modFit, useModel=T)
+varImp(modFit, useModel=T, scale=FALSE)
+modFit
+library(ElemStatLearn)#
+data(vowel.train)#
+data(vowel.test)
+vowel.train$y <- factor(vowel.train$y)
+vowel.test$y <- factor(vowel.test$y)
+modFit <- train(y ~., method="rf",data=vowel.train)
+set.seed(33833)
+modFit <- train(y ~., method="rf",data=vowel.train)
+str(vowel.train)
+modFit
+modFit$finalModel
+str(modFit)
+varImp(modFit,useModel=T, scale=FALSE)
+modFit <- train(y ~., method="rf",data=vowel.train,importance=FALSE)
+varImp(modFit)
+?train
+?randomForest
+set.seed(33833)
+modFit2 <- randomForest(y~.,importance=FALSE,data=vowel.train, proximity=TRUE)
+varImp(modFit2)
+order(varImp(modFit2))
+library(pgmm)#
+data(olive)#
+olive = olive[,-1]
+modFit <- train(Area ~ ., method="rpart",data=olive)
+newdata = as.data.frame(t(colMeans(olive)))
+predict(modFit, newdata=newdata)
+library(AppliedPredictiveModeling)#
+data(segmentationOriginal)#
+library(caret)
+training <- subset(segmentationOriginal, Case == "Train")
+testing <- subset(segmentationOriginal, Case == "Test")
+set.seed(125)
+str(training)
+dim(training)
+dim(testing)
+modFit <- train(Class ~ .,method="rpart",data=training)
+fancyRpartPlot(modFit$finalModel)
+library(AppliedPredictiveModeling)
+pkgversion
+versiob(AppliedPredictiveModeling)
+version(AppliedPredictiveModeling)
+library(ElemStatLearn)
+library(pgmm)
+library(rpart)
+library(gbm)
+library(ElemStatLearn)
+data(prostrate)
+data(prostate)
+str(prostate)
+str(InsectSpray)
+str(InsectSprays)
+InsectSprays
+exit
+quit
+quit()
+install.packages("leaflet")
+library(leaflet)
+my_map <- leaflet() %>%
+addTiles()
+my_map
+library(leaflet)
+my_map <- leaflet() %>%
+addTiles()
+my_map
+my_map <- leaflet() %>%
+addTiles() %>%
+addMarkers(lat=39.2980803, lng=-76.5898801, #
+             popup="Jeff Leek's Office")
+my_map
+set.seed(2016-04-25)#
+df <- data.frame(lat = runif(20, min = 39.2, max = 39.3),#
+                 lng = runif(20, min = -76.6, max = -76.5))#
+df %>% #
+  leaflet() %>%#
+  addTiles() %>%#
+  addMarkers()
+library(Shiny)
+library(shiny)
+library(shiny)#
+shinyUI(pageWithSidebar(  #
+  headerPanel("Data science FTW!"),  #
+  sidebarPanel(    #
+     h2('Big text')    #
+     h3('Sidebar')  #
+  ),  #
+  mainPanel(      #
+       h3('Main Panel text')  #
+  )#
+))''
+library(shiny)#
+shinyUI(pageWithSidebar(  #
+  headerPanel("Data science FTW!"),  #
+  sidebarPanel(    #
+     h2('Big text')    #
+     h3('Sidebar')  #
+  ),  #
+  mainPanel(      #
+       h3('Main Panel text')  #
+  )#
+))
+library(shiny)#
+shinyUI(pageWithSidebar(  #
+  headerPanel("Data science FTW!"),  #
+  sidebarPanel(    #
+     h2('Big text'),   #
+     h3('Sidebar')  #
+  ),  #
+  mainPanel(      #
+       h3('Main Panel text')  #
+  )#
+))
+library(miniUI)
+myFirstGadget <- function() {#
+  ui <- miniPage(#
+    gadgetTitleBar("My First Gadget")#
+  )#
+  server <- function(input, output, session) {#
+    # The Done button closes the app#
+    observeEvent(input$done, {#
+      stopApp()#
+    })#
+  }#
+  runGadget(ui, server)#
+}
+myFirstGadget()
+library(shiny)#
+library(miniUI)#
+#
+pickXY <- function() {#
+  ui <- miniPage(#
+    gadgetTitleBar("Select Points by Dragging your Mouse"),#
+    miniContentPanel(#
+      plotOutput("plot", height = "100%", brush = "brush")#
+    )#
+  )#
+#
+  server <- function(input, output, session) {#
+      output$plot <- renderPlot({#
+        plot(data_frame$X, data_frame$Y, main = "Plot of Y versus X",#
+           xlab = "X", ylab = "Y")#
+      })#
+      observeEvent(input$done, {#
+        stopApp(brushedPoints(data_frame, input$brush,#
+                          xvar = "X", yvar = "Y"))#
+      })#
+  }#
+#
+  runGadget(ui, server)#
+}
+pickXY
+my_data <- data.frame(X = rnorm(100), Y = rnorm(100))
+my_data
+pickXY
+pickXY(my_data)
+pickXY()
+install.packages("leaflet")
+library(leaflet)
+my_map <- my_map %>%#
+  addMarkers(lat=39.2980803, lng=-76.5898801, #
+             popup="Jeff Leek's Office")#
+my_map()
+my_map
+my_map <- my_map %>%#
+  addMarkers(lat=39.2980803, lng=-76.5898801, #
+             popup="Jeff Leek's Office")
+library(leaflet)#
+my_map <- leaflet() %>% #
+  addTiles()#
+my_map
+library(leaflet)#
+my_map <- my_map %>%#
+  addMarkers(lat=39.2980803, lng=-76.5898801, #
+             popup="Jeff Leek's Office")#
+my_map
+library(leaflet)#
+my_map <- my_map %>%#
+  addMarkers(lat=33.019844, lng=-96.698883, #
+             popup="Athul's home town")#
+my_map
+set.seed(2016-04-25)#
+df <- data.frame(lat = runif(20, min = 33.019844, max = 33.2),#
+                 lng = runif(20, min = -96.598883, max = -96.498883))#
+df %>% #
+  leaflet() %>%#
+  addTiles() %>%#
+  addMarkers()
+set.seed(2016-04-25)#
+df <- data.frame(lat = runif(20, min = 33.019844, max = 33.2),#
+                 lng = runif(20, min = -96.798883, max = -96.698883))#
+df %>% #
+  leaflet() %>%#
+  addTiles() %>%#
+  addMarkers()
+df <- data.frame(lat = runif(500, min = 39.25, max = 39.35),#
+                 lng = runif(500, min = -76.65, max = -76.55))#
+df %>% #
+  leaflet() %>%#
+  addTiles() %>%#
+  addMarkers(clusterOptions = markerClusterOptions())
+df
+leaflet(df)
+addTiles(leaflet(df))
+leaflet(df) %>% addTiles()
+addTiles(leaflet(df()))
+?classes
+?Methods
+?Classes
+class(TRUE)
+class(rand(0,1))
+class(runif(0,1))
+x <- rnorm(100)
+x
+y <- x + rnorm(100)
+fit <- lm(y ~ x)
+class(fit)
+methods(mean)
+show
+methods(show)
+showMethods("show")
+getmethod(fit, lm)
+getMethod(fit, lm)
+getMethod( lm)
+getMethod(mean, lm)
+getMethod("mean", lm)
+getMethod("show", lm)
+dry.dryrf(3)
+set.seed(2)
+x <- rnorm(100)
+mean(x)
+class(mean(x))
+head(getS3method("mean","default"),10)
+head(getS3method("mean","default"),20)
+head(getS3method("mean","default"),40)
+set.seed(10)
+x < rnorm(100)
+x <- rnorm(100)
+plot(x)
+x
+head(getS3method("plot","default"),40)
+x <- as.ts(x)
+plot(x)
+library(methods)
+setClass("mohanPolygon", representation(x = "numeric", y="numeric"))
+mohanPolygon aa
+aa <-new("mohanPolygon" x=c(1,2,3,4), y=c(1,2,3,1))
+aa <- new("mohanPolygon" x=c(1,2,3,4), y=c(1,2,3,1))
+aa <- new("mohanPolygon", x=c(1,2,3,4), y=c(1,2,3,1))
+aa
+mean(aa)
+show(aa)
+class(aa)
+install.packages("plotly")
+library(plotly)
+version
+install.packages(devtools)
+library(devtools)
+install.packages(plotly)
+library(plotly)
+exit
+quit()
+ls()
+fatalityInfo <- read.csv("AlcoholFatalities.csv",sep="\t")
+library(shiny)
+library(dplyr)
+str(fatalityInfo)
+start <- 3
+end <- 12
+filter(fatalityInfo,((StartTime >= start) & (EndTime <= end))
+)
+desiredInfo <- filter(fatalityInfo,((StartTime >= start) & (EndTime <= end)))
+str(desiredInfo)
+?dplyr
+?select
+iris <- tbl_df(iris)
+str(iris)
+?select
+select(iris, petal_length = Petal.Length)
+str(filteredInfo)
+str(fatalityInfo)
+?select
+select(fatalityInfo, c("StartTime", "EndTime"),starts_with("SV"))
+select(fatalityInfo, "StartTime", "EndTime",starts_with("SV"))
+select(fatalityInfo, "StartTime", "EndTime",starts_with("SV"))
+select(fatalityInfo, starts_with("SV"))
+select(fatalityInfo, starts_with("MV"))
+select(fatalityInfo, starts_with("Total"))
+select(fatalityInfo, StartTime)
+select(fatalityInfo, StartTime, EndTime, starts_with("Total"))
